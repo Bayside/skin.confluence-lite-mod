@@ -10,7 +10,8 @@
 	<include file="Viewtype_Lowlist.xml" />
 	<include file="Viewtype_Rightlist.xml" />
 	<include file="Viewtype_Wallstream.xml" />
-	<!--include file="Viewtype_Musicwallstream.xml" /-->
+	<include file="Viewtype_MediaList2012.xml" />
+<!--include file="Viewtype_Musicwallstream.xml" /-->
 	<include file="IncludesCodecFlagging.xml" />
 	<include file="IncludesHomeRecentlyAdded.xml" />
 	<include file="IncludesHomeLibraryStats.xml" />
