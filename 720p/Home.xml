@@ -587,7 +587,8 @@
 				<onfocus>SetFocus(9000)</onfocus>
 				<visible>Skin.HasSetting(InitialSetUpRun)</visible>
 			</control>	
-			<control type="fixedlist" id="9000">
+			<!-- Main Menu -->
+			<control type="wraplist" id="9000">
 				<posx>-110</posx>
 				<posy>5</posy>
 				<width>1500</width>
