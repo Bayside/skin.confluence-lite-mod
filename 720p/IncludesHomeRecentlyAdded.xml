@@ -1050,7 +1050,9 @@
 				<!-- Home Panel Addons -->
 				<visible>!Skin.HasSetting(HideHomeMediaPanel)</visible>
 				<visible>	
-					StringCompare(Container(9000).ListItem.Label2,AddOn) |  StringCompare(Container(9000).ListItem.Label2,Videos) |  
+					<!-- Temporary Disable Add-on panel for other panel testing -->
+					<!-- >StringCompare(Container(9000).ListItem.Label2,AddOn) |  -->
+					StringCompare(Container(9000).ListItem.Label2,Videos) |  
 					[!Skin.HasSetting(HideHomeMediaPanel) + !Skin.HasSetting(StickyWeatherPanel)  + !StringCompare(Container(9000).ListItem.Label2,Movies) +
 					!StringCompare(Container(9000).ListItem.Label2,Weather) + !StringCompare(Container(9000).ListItem.Label2,TVShows) + !StringCompare(Container(9000).ListItem.Label2,Music) +
 					!StringCompare(Container(9000).ListItem.Label2,Concerts) + !StringCompare(Container(9000).ListItem.Label2,Playlist)] |
@@ -1237,8 +1239,357 @@
 					</content>
 				</control>	
 			</control>	
+			<!-- Home Panel System Info and Library Stats -->
+			<control type="group">
+				<posx>215</posx>
+				<posy>50</posy>
+				<visible>StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[5]) + !Skin.HasSetting(homepageSysLibStats)</visible>	
+				<include>VisibleFadeEffect</include>
+				<control type="image">
+					<description>background</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>885</width>
+					<height>370</height>
+					<texture border="20">ContentPanel.png</texture>
+					<colordiffuse>6FFFFFFF</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>10</posy>
+					<width>850</width>
+					<height>90</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>GlassTitleBar.png</texture>
+				</control>
+				<control type="label">
+					<description>Title label</description>
+					<posx>25</posx>
+					<posy>18</posy>
+					<height>20</height>
+					<width>830</width>
+					<label>$LOCALIZE[31801]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>font13_title</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="group">	
+					<posx>27</posx>
+					<posy>55</posy>
+					<control type="image">
+						<description>background</description>
+						<posx>0</posx>
+						<posy>5</posy>
+						<width>208</width>
+						<height>270</height>
+						<texture border="15">ContentPanel.png</texture>
+						<colordiffuse>4FFFFFFF</colordiffuse>
+					</control>
+					<control type="label">
+						<description>System Information</description>
+						<posx>15</posx>
+						<posy>15</posy>
+						<height>20</height>
+						<width>180</width>
+						<label>$LOCALIZE[31500]</label>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font12_title</font>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>60</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31504]: [/COLOR]$INFO[System.InternetState]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>85</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31505]: [/COLOR]$INFO[Network.IPAddress]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>110</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31506]: [/COLOR]$INFO[System.FreeMemory]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>135</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31507]: [/COLOR]$INFO[System.CPUTemperature]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>160</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31508]: [/COLOR]$INFO[System.GPUTemperature]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>185</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31509]: [/COLOR]$INFO[System.ScreenWidth]x$INFO[System.ScreenHeight]</label>
+					</control>
+				</control>
+				<control type="group">	
+					<posx>237</posx>
+					<posy>55</posy>
+					<control type="image">
+						<description>background</description>
+						<posx>0</posx>
+						<posy>5</posy>
+						<width>208</width>
+						<height>270</height>
+						<texture border="15">ContentPanel.png</texture>
+						<colordiffuse>4FFFFFFF</colordiffuse>
+					</control>
+					<control type="label">
+						<description>Movie Library</description>
+						<posx>15</posx>
+						<posy>15</posy>
+						<height>20</height>
+						<width>180</width>
+						<label>$LOCALIZE[31501]</label>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font12_title</font>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>60</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31510]: [/COLOR]$INFO[Window(Home).Property(Movies.Count)]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>85</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31511]: [/COLOR]$INFO[Window(Home).Property(Movies.Watched)]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>110</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31512]: [/COLOR]$INFO[Window(Home).Property(Movies.UnWatched)]</label>
+					</control>
+				</control>
+				<control type="group">	
+					<posx>447</posx>
+					<posy>55</posy>
+					<control type="image">
+						<description>background</description>
+						<posx>0</posx>
+						<posy>5</posy>
+						<width>208</width>
+						<height>270</height>
+						<texture border="15">ContentPanel.png</texture>
+						<colordiffuse>4FFFFFFF</colordiffuse>
+					</control>
+					<control type="label">
+						<description>TV Show Library</description>
+						<posx>15</posx>
+						<posy>15</posy>
+						<height>20</height>
+						<width>180</width>
+						<label>$LOCALIZE[31502]</label>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font12_title</font>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>60</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31513]: [/COLOR]$INFO[Window(Home).Property(TVShows.Count)]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>85</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31516]: [/COLOR]$INFO[Window(Home).Property(Episodes.Count)]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>110</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31517]: [/COLOR]$INFO[Window(Home).Property(Episodes.Watched)]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>135</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31518]: [/COLOR]$INFO[Window(Home).Property(Episodes.UnWatched)]</label>
+					</control>
+				</control>
+				<control type="group">	
+					<posx>657</posx>
+					<posy>55</posy>
+					<control type="image">
+						<description>background</description>
+						<posx>0</posx>
+						<posy>5</posy>
+						<width>208</width>
+						<height>270</height>
+						<texture border="15">ContentPanel.png</texture>
+						<colordiffuse>4FFFFFFF</colordiffuse>
+					</control>
+					<control type="label">
+						<description>Music Library</description>
+						<posx>15</posx>
+						<posy>15</posy>
+						<height>20</height>
+						<width>180</width>
+						<label>$LOCALIZE[31503]</label>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font12_title</font>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>60</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31520]: [/COLOR]$INFO[Window(Home).Property(Music.AlbumsCount)]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>85</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31519]: [/COLOR]$INFO[Window(Home).Property(Music.ArtistsCount)]</label>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<posy>110</posy>
+						<height>20</height>
+						<width>180</width>
+						<font>font10</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=grey2]$LOCALIZE[31521]: [/COLOR]$INFO[Window(Home).Property(Music.SongsCount)]</label>
+					</control>
+				</control>
+			</control>		
 		</control>
-	</include>	
+</include>	
 	<include name="HomeContentRecentMovies">
 		<content>
 			<item>
