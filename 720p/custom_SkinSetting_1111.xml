@@ -1524,6 +1524,20 @@
 						<texturenofocus>MenuItemNF.png</texturenofocus>
 						<enable>!Skin.HasSetting(HideHomeWeatherPanel)</enable>
 					</control>
+					<!-- Trigger for System Info and Lib Stats panel -->
+					<control type="radiobutton" id="325">
+						<description>System Info and Lib Stats Panel</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>31800</label>
+						<onclick>Skin.ToggleSetting(homepageSysLibStats)</onclick>
+						<selected>!Skin.HasSetting(homepageSysLibStats)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
 					<control type="label" id="309">
 						<width>750</width>
 						<height>45</height>
